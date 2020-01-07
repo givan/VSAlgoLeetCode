@@ -1,0 +1,29 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algo", "Algo\Algo.csproj", "{3BA3A967-1CB3-47CF-8790-A50BD86E5F32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoConsoleApp", "AlgoConsoleApp\AlgoConsoleApp.csproj", "{7B4D939A-EC0F-4995-A3B5-623FE9065697}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algo.Tests", "Algo.Tests\Algo.Tests.csproj", "{BA0923C1-1EA9-48B0-A0D9-F02CA68270EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3BA3A967-1CB3-47CF-8790-A50BD86E5F32}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{3BA3A967-1CB3-47CF-8790-A50BD86E5F32}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{3BA3A967-1CB3-47CF-8790-A50BD86E5F32}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{3BA3A967-1CB3-47CF-8790-A50BD86E5F32}.Release|anycpu.Build.0 = Release|Any CPU
+		{7B4D939A-EC0F-4995-A3B5-623FE9065697}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{7B4D939A-EC0F-4995-A3B5-623FE9065697}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{7B4D939A-EC0F-4995-A3B5-623FE9065697}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{7B4D939A-EC0F-4995-A3B5-623FE9065697}.Release|anycpu.Build.0 = Release|Any CPU
+		{BA0923C1-1EA9-48B0-A0D9-F02CA68270EE}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{BA0923C1-1EA9-48B0-A0D9-F02CA68270EE}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{BA0923C1-1EA9-48B0-A0D9-F02CA68270EE}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{BA0923C1-1EA9-48B0-A0D9-F02CA68270EE}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
