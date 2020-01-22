@@ -1,16 +1,23 @@
-// Solution for https://leetcode.com/problems/top-k-frequent-words/
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
+// Solution for https://leetcode.com/problems/top-k-frequent-words/
 public static class TopKFrequentWords
 {
     public static IList<string> TopKFrequent(string[] words, int k)
     {
         List<string> result = new List<string>();
 
-        if (words == null || words.Length == 0) return result;
-        if (k <= 0) return result;
+        if (words == null || words.Length == 0)
+        {
+            return result;
+        }
+
+        if (k <= 0)
+        {
+            return result;
+        }
 
         // first iterate over all words and count how many times each word counts
         Dictionary<string, int> wordsToCount = new Dictionary<string, int>();
@@ -61,22 +68,22 @@ class WordCount
 
 class WordCountComparer : Comparer<WordCount>
 {
-    public override int Compare([AllowNull] WordCount left, [AllowNull] WordCount right)
+    public override int Compare([AllowNull] WordCount x, [AllowNull] WordCount y)
     {
-        if (left == null && right == null) return 0;
-        if (left == null && right != null) return 1;
-        if (left != null && right == null) return -1;
+        if (x == null && y == null) return 0;
+        if (x == null && y != null) return 1;
+        if (x != null && y == null) return -1;
 
-        if (left.Count == right.Count)
+        if (x.Count == y.Count)
         {
             // If two words have the same frequency, then the word with the lower alphabetical order comes first.
             // becase we're generating decreasing sequence, we want to first return the bigger and then the smaller string
             // based on their alphabetical order; for example, if we have "i" and "love", then "i" has lower alphabetical order than "love"
             // however the requirement here is to return "i" before "love" hence for the wordCount element we need to inverse by sign
             // the comparison result from the word values
-            return left.Word.CompareTo(right.Word) * (-1);
+            return string.CompareOrdinal(x.Word, y.Word) * (-1);
         }
 
-        return left.Count.CompareTo(right.Count);
+        return x.Count.CompareTo(y.Count);
     }
 }

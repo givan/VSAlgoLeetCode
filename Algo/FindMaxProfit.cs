@@ -6,7 +6,10 @@ namespace Algo
         // PROBLEM: https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/564/
         public static int Solve(int[] prices)
         {
-            if (prices == null || prices.Length < 1) return 0;
+            if (prices == null || prices.Length < 1)
+            {
+                return 0;
+            }
 
             // try to find increase first
             // we want to determine if rising or dropping price is here
@@ -37,8 +40,8 @@ namespace Algo
 
                     profit += (sellPrice - buyPrice);
                 }
+                
                 // for any other cases, we simply move the index to the right until we find an increasing sequence
-
                 currentTickIdx++;
             }
 

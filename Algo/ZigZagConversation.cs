@@ -69,9 +69,7 @@ namespace Algo
             for (int currentRow = 0; currentRow < numRows; currentRow++)
             {
                 List<char> currentRowChars = rowNumberToCharList[currentRow];
-                string currentRowString = String.Join("", currentRowChars.ToArray());
-
-                sbEncodedString.AppendJoin("", currentRowChars.ToArray());
+                sbEncodedString.AppendJoin("", currentRowChars);
             }
 
             return sbEncodedString.ToString();

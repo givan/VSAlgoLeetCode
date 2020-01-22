@@ -8,14 +8,15 @@ namespace Algo
         // Problem: https://leetcode.com/problems/remove-duplicates-from-sorted-array/
         public static int Execute(int[] nums)
         {
-            if (nums == null || nums.Length == 0) return 0;
+            if (nums == null || nums.Length == 0)
+            {
+                return 0;
+            }
 
             int lastUniqueIdx = 0;
             int currentIdx = lastUniqueIdx + 1;
 
-            List<int> myList = new List<int>();
-
-            while(currentIdx < nums.Length)
+            while (currentIdx < nums.Length)
             {
                 if (nums[currentIdx] == nums[lastUniqueIdx])
                 {
