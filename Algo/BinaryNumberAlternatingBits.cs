@@ -30,7 +30,7 @@ namespace Algo
             return areAlternating;
         }
 
-        public bool HasAlternatingBitsV2(int n)
+        public static bool HasAlternatingBitsV2(int n)
         {
             // FROM: https://leetcode.com/problems/binary-number-with-alternating-bits/discuss/484631/Java-beats-100-O(1)-operations-O(1)-memory-several-bit-operations
             if (n <= 0)

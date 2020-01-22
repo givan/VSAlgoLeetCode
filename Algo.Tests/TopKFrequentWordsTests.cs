@@ -15,7 +15,7 @@ namespace Algo.Tests
             // Input: ["i", "love", "leetcode", "i", "love", "coding"], k = 2
             string[] words = new [] { "i", "love", "leetcode", "i", "love", "coding" };
             int k = 2;
-            List<string> expected = new List<string>() { "i", "love" };
+            List<string> expected = new List<string> { "i", "love" };
 
             // act
             List<string> mostFreqWords = new List<string>(TopKFrequentWords.TopKFrequent(words, k));
@@ -31,7 +31,7 @@ namespace Algo.Tests
             string[] words = new[] {"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is" };
             int k = 4;
 
-            List<string> expectedWords = new List<string>() { "the", "is", "sunny", "day" };
+            List<string> expectedWords = new List<string> { "the", "is", "sunny", "day" };
 
             // act
             IList<string> result = TopKFrequentWords.TopKFrequent(words, k);

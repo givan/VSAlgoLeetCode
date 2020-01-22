@@ -9,15 +9,9 @@ public static class TopKFrequentWords
     {
         List<string> result = new List<string>();
 
-        if (words == null || words.Length == 0)
-        {
-            return result;
-        }
+        if (words == null || words.Length == 0) { return result; }
 
-        if (k <= 0)
-        {
-            return result;
-        }
+        if (k <= 0) { return result; }
 
         // first iterate over all words and count how many times each word counts
         Dictionary<string, int> wordsToCount = new Dictionary<string, int>();
@@ -70,9 +64,9 @@ class WordCountComparer : Comparer<WordCount>
 {
     public override int Compare([AllowNull] WordCount x, [AllowNull] WordCount y)
     {
-        if (x == null && y == null) return 0;
-        if (x == null && y != null) return 1;
-        if (x != null && y == null) return -1;
+        if (x == null && y == null) { return 0; }
+        if (x == null && y != null) { return 1; }
+        if (x != null && y == null) { return -1; }
 
         if (x.Count == y.Count)
         {

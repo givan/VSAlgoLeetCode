@@ -50,10 +50,8 @@ namespace Algo
 
                     parsedDigits.RemoveAt(0); // remove the first digit which we already added
                 }
-                catch (OverflowException overflow)
+                catch (OverflowException)
                 {
-                    Console.WriteLine(overflow.ToString());
-
                     reversedNum = 0; // if overflow happens, the return value is 0
                     break;
                 }
