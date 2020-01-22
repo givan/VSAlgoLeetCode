@@ -22,6 +22,7 @@ namespace Algo.Tests
             Assert.AreEqual(expectedResult, result);
         }
 
+        [TestMethod]
         public void NegativeOneBit()
         {
             // arrange

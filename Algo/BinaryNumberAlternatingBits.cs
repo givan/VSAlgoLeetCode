@@ -8,7 +8,10 @@ namespace Algo
     {
         public bool HasAlternatingBits(int n)
         {
-            if (n <= 0) return false;
+            if (n <= 0)
+            {
+                return false;
+            }
 
             // conver the int into a string with the bits value at each char
             string numberBits = Convert.ToString(n, 2); // convert the int to an array using 2-based system
@@ -25,6 +28,28 @@ namespace Algo
             }
 
             return areAlternating;
+        }
+
+        public bool HasAlternatingBitsV2(int n)
+        {
+            // FROM: https://leetcode.com/problems/binary-number-with-alternating-bits/discuss/484631/Java-beats-100-O(1)-operations-O(1)-memory-several-bit-operations
+            if (n <= 0)
+            {
+                return false;
+            }
+
+            int y;
+            if (n % 2 != 0)
+            { // 101, for instance
+                y = n << 1; //  101<<1=1010
+            }
+            else
+            { // 1010, for instance
+                y = n >> 1; //  1010 >> 1=101
+            }
+
+            int z = n + y; // 1111..
+            return ((z + 1) & z) == 0; // 10000... & 1111... = 0
         }
     }
 }
