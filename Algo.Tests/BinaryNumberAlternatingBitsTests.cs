@@ -15,7 +15,7 @@ namespace Algo.Tests
             bool expectedResult = true;
 
             // act
-            BinaryNumberAlternatingBits alternatingBinaryNumbers = new BinaryNumberAlternatingBits();
+            var alternatingBinaryNumbers = new BinaryNumberAlternatingBits();
             bool result = alternatingBinaryNumbers.HasAlternatingBits(input);
 
             // assert
@@ -31,7 +31,7 @@ namespace Algo.Tests
             bool expectedResult = false;
 
             // act
-            BinaryNumberAlternatingBits alternatingBits = new BinaryNumberAlternatingBits();
+            var alternatingBits = new BinaryNumberAlternatingBits();
             bool result = alternatingBits.HasAlternatingBits(input);
 
             // assert
