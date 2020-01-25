@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Algo
+﻿namespace Algo
 {
     public static class ReplaceDuplicatesInPlace
     {

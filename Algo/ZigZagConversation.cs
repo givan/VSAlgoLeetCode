@@ -42,7 +42,7 @@ namespace Algo
             {
                 int currentIdxRemainder = currIdx % cyclicDivisor;
 
-                List<char> currentRowChars = null;
+                List<char> currentRowChars;
 
                 // now we will use the numRows to determine if the correct row where the current index should map to
                 // if currentIdxRemainder is less than numRows, then we just add it to the row as identified 

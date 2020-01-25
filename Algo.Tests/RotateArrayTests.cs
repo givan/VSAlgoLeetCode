@@ -1,5 +1,5 @@
 ﻿using System;
-using Algos;
+using Algo;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Algo.Tests

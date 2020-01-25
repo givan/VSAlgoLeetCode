@@ -1,7 +1,7 @@
 
 using System;
 
-namespace Algos {
+namespace Algo {
     // Problem: https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/646/
     public static class RotateArray
     {
