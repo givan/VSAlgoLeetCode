@@ -1,15 +1,17 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Algo.Tests {
+namespace Algo.Tests
+{
     [TestClass]
     public class PhoneNumberCombinationTests
     {
         [TestMethod]
-        public void OneDigitCombinationTests() {
+        public void OneDigitCombinationTests()
+        {
             // arrange
             string digits = "2";
-            var expectedWords = new List<string>() {"a", "b", "c" };
+            var expectedWords = new List<string> { "a", "b", "c" };
 
             // act
             IList<string> generatedWordsList = PhoneNumberCombinations.LetterCombinations(digits);
@@ -19,10 +21,11 @@ namespace Algo.Tests {
         }
 
         [TestMethod]
-        public void TwoDigitCombinationTests() {
+        public void TwoDigitCombinationTests()
+        {
             // arrange
             string digits = "23";
-            var expectedWords = new List<string>() {"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf" };
+            var expectedWords = new List<string> { "ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf" };
 
             // act
             IList<string> generatedWordsList = PhoneNumberCombinations.LetterCombinations(digits);

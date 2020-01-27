@@ -10,7 +10,7 @@ namespace Algo
 
     public static class PhoneNumberCombinations
     {
-        private static readonly Dictionary<char, char[]> DIGIT_TO_LETTERS = new Dictionary<char, char[]>()
+        private static readonly Dictionary<char, char[]> DIGIT_TO_LETTERS = new Dictionary<char, char[]>
         {
             {'2', new [] {'a', 'b', 'c'}},
             {'3', new [] {'d', 'e', 'f'}},

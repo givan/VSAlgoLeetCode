@@ -51,7 +51,7 @@ rotate 2 steps to the right: [3,99,-1,-100]
                 buff[currIdx] = nums[currIdx];
             }
 
-            // now shift the elements starting at index n - k to the left by k positions;
+            // now shift the elements starting at index n - k to the left by k positions
             // we have the elements up to index K stored in buff so we can recover the
             // the overriden values
             int leftIdx = 0, rightIdx = nums.Length - k;

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace Algo
 {
+    using System;
+
     // Solution for problem: https://leetcode.com/problems/combination-sum/
     // Difficulty: medium
     public class CombinaitionsSum
@@ -13,8 +15,8 @@ namespace Algo
         {
             List<IList<int>> combinations = new List<IList<int>>();
 
-            if (target <= 0) { return combinations.AsReadOnly(); };
-            if (candidates == null || candidates.Length == 0) { return combinations.AsReadOnly(); }
+            if (target <= 0) { return combinations; }
+            if (candidates == null || candidates.Length == 0) { return combinations; }
 
             candidatesSet = new SortedSet<int>();
             foreach (var candidate in candidates)
@@ -26,9 +28,10 @@ namespace Algo
                 }
             }
 
-            if (candidatesSet.Count == 0) { return combinations.AsReadOnly(); } // of the integers were greater than target
+            if (candidatesSet.Count == 0) { return combinations; } // of the integers were greater than target
 
             List<int> currentPermuation = new List<int>(); // this will be holding the currently generated permuation of candidates
+
             CombinationsWithSum(target, currentPermuation, combinations);
 
             return combinations.AsReadOnly();
@@ -38,12 +41,13 @@ namespace Algo
         {
             // we're only interested at the candidates who are greaer than the last element in the current permutation
             // the reason for this is that we want to have unique combinations of possible digits in increasing order
-            int maxCurrentCandidate = (currentPermuation.Count > 0) ? currentPermuation[currentPermuation.Count - 1] : 0; 
+            int maxCurrentCandidate = (currentPermuation.Count > 0) ? currentPermuation[currentPermuation.Count - 1] : 0;
 
             // for each possible candidate for the current position - which are any candidates from the original set less or equal to sumTarget
             foreach (var candidate in candidatesSet)
             {
-                if (candidate < maxCurrentCandidate) {
+                if (candidate < maxCurrentCandidate)
+                {
                     continue; // skip since we want to remove duplicate combinations
                     // everytime we getting only the combination where the candidates are in increasing order
                 }
