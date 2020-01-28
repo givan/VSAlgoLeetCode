@@ -21,15 +21,15 @@ namespace Algo
             {
 
                 // find the beginning of the current word (non space character)
-                while (wordBeginIdx < s.Length && s[wordBeginIdx] == ' ') wordBeginIdx++;
+                while (wordBeginIdx < s.Length && s[wordBeginIdx] == ' ') { wordBeginIdx++; }
                 if (wordBeginIdx == s.Length) { break; } // we found only spaces so we're leaving now
 
                 // now find the next space after wordBeginIdx
                 // if no space is found, then we copy all characters between wordBeginIdx and last char in the string
                 int nextSpaceIdx = wordBeginIdx + 1;
-                while (nextSpaceIdx < s.Length && s[nextSpaceIdx] != ' ') nextSpaceIdx++;
+                while (nextSpaceIdx < s.Length && s[nextSpaceIdx] != ' ') { nextSpaceIdx++; }
 
-                string currentWord = s.Substring(wordBeginIdx, nextSpaceIdx - wordBeginIdx);
+                string currentWord = s[wordBeginIdx..nextSpaceIdx];
                 words.Add(currentWord);
 
                 wordBeginIdx = nextSpaceIdx + 1;
