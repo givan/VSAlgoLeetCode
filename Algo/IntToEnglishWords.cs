@@ -8,6 +8,8 @@ namespace Algo
     // Solution for problem: https://leetcode.com/problems/integer-to-english-words/
     // Difficulty: Hard
     // Convert a non-negative integer to its english words representation. Given input is guaranteed to be less than 2^31 - 1.
+    // Result: Runtime: 80 ms, faster than 86.34% of C# online submissions for Integer to English Words.
+    // Memory Usage: 23.8 MB, less than 100.00% of C# online submissions for Integer to English Words.
     public static class IntegerToEnglishWords
     {
         private static readonly int BILLION = 1000000000;
