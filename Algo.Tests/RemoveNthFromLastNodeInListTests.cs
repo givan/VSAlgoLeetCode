@@ -19,11 +19,19 @@ namespace Algo.Tests {
         [TestMethod]
         public void RemoveSecondFromLastTest() {
             // arrange
-            var head = new ListNode(1);
-            head.next = new ListNode(2);
-            head.next.next = new ListNode(3);
-            head.next.next.next = new ListNode(4);
-            head.next.next.next.next = new ListNode(5);
+            var head = new ListNode(1)
+            {
+                Next = new ListNode(2)
+                {
+                    Next = new ListNode(3)
+                    {
+                        Next = new ListNode(4)
+                        {
+                            Next = new ListNode(5)
+                        }
+                    }
+                }
+            };
 
             // act
             int secondFromLast = 2; // second from last is 4
@@ -36,8 +44,8 @@ namespace Algo.Tests {
 
             ListNode currElem = newHead;
             while(currElem != null) {
-                Assert.AreNotEqual(expectedNodeValueToRemove, currElem.val);
-                currElem = currElem.next;
+                Assert.AreNotEqual(expectedNodeValueToRemove, currElem.Val);
+                currElem = currElem.Next;
             }
         }
 
@@ -53,7 +61,7 @@ namespace Algo.Tests {
             // assert
             Assert.IsNotNull(newHead);
             Assert.AreEqual(head, newHead);
-            Assert.AreEqual(1, newHead.val);
+            Assert.AreEqual(1, newHead.Val);
         }
 
         [TestMethod]

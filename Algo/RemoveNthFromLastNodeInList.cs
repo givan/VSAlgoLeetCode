@@ -12,7 +12,7 @@ namespace Algo {
             if (head == null) { return null; }
             if (n <= 0) { return head; }
 
-            ListNode dummyHead = new ListNode(int.MinValue) { next = head }; // add a dummy head to make it easy when we need to remove the current head
+            ListNode dummyHead = new ListNode(int.MinValue) { Next = head }; // add a dummy head to make it easy when we need to remove the current head
 
             int countFromBack = RemoveTheNthFromEndBacktracking(dummyHead, n); // this recursinve method uses backtracking to 
             
@@ -20,18 +20,18 @@ namespace Algo {
                 throw new ArgumentException($"There are not {n} elements in the given linked list");
             }
 
-            return dummyHead.next;
+            return dummyHead.Next;
         }
 
         private static int RemoveTheNthFromEndBacktracking(ListNode currentElement, int n)
         {
-            if (currentElement.next == null) { return 0; } // the last element in the list is at index 0
+            if (currentElement.Next == null) { return 0; } // the last element in the list is at index 0
 
             // if there are more elements, call recursively to reach the end and start counting backwards
-            int currentElemIdx = RemoveTheNthFromEndBacktracking(currentElement.next, n) + 1;
+            int currentElemIdx = RemoveTheNthFromEndBacktracking(currentElement.Next, n) + 1;
 
             if (currentElemIdx == n) {
-                currentElement.next = currentElement.next.next; // we know currentElement.next is not null at this point
+                currentElement.Next = currentElement.Next.Next; // we know currentElement.next is not null at this point
             }
 
             return currentElemIdx;
