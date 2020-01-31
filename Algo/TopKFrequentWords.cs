@@ -66,9 +66,18 @@ namespace Algo
     {
         public override int Compare([AllowNull] WordCount x, [AllowNull] WordCount y)
         {
-            if (x == null && y == null) { return 0; }
-            if (x == null && y != null) { return 1; }
-            if (x != null && y == null) { return -1; }
+            if (x == null)
+            {
+                if (y == null)
+                {
+                    return 0;
+                }
+                else
+                {
+                    return 1; // x is null and y isn't null
+                }
+            }
+            else if (y == null) { return -1; } // x not null and y is null in which case x > y (hence -1)
 
             if (x.Count == y.Count)
             {
