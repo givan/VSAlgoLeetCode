@@ -29,7 +29,7 @@ namespace Algo {
                 int startingIdx = 0, foundIdx = 0;
                 while (foundIdx >= 0)
                 {
-                    foundIdx = input.IndexOf(word, startingIdx);
+                    foundIdx = input.IndexOf(word, startingIdx, StringComparison.InvariantCulture);
                     if (foundIdx >= 0)
                     {
                         if (!indexToWords.TryGetValue(foundIdx, out var wordsAtIndex)) {
