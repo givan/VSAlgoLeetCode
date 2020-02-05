@@ -24,7 +24,7 @@ namespace Algo
             }
 
             var right = new int[nums.Length];
-            right[right.Length - 1] = 1;
+            right[^1] = 1;
 
             for (int currIdx = right.Length - 2; currIdx >= 0; currIdx--)
             {
