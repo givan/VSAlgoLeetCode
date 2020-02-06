@@ -15,15 +15,17 @@ namespace Algo.Common
             // do root->left->right iteration and add the values to the StringBuilder
             StringBuilder sbTree = new StringBuilder();
 
-            sbTree.Append($"{ this.Val }");
-            if (Left != null)
-            {
-                sbTree.Append($", { Left.ToString() }");
-            }
+            bool isLeaf = (Left == null && Right == null);
 
-            if (Right != null)
+            sbTree.Append($"{ this.Val }");
+
+            if (!isLeaf)
             {
-                sbTree.Append($", { Right.ToString() }");
+                string leftNode = (Left != null) ? Left.ToString() : "null";
+                sbTree.Append($", { leftNode  }"); 
+
+                string rightNode = (Right != null) ? Right.ToString(): "null";
+                sbTree.Append($", { rightNode }");
             }
 
             return sbTree.ToString();
