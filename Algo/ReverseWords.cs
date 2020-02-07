@@ -39,7 +39,7 @@ namespace Algo
 
             if (words.Count > 0)
             {
-                sbReversedWords.Append(words[words.Count - 1]); // append the last word as it is (no space after it)
+                sbReversedWords.Append(words[^1]); // append the last word as it is (no space after it)
 
                 for (int currentWordIdx = words.Count - 2; currentWordIdx >= 0; currentWordIdx--)
                 {

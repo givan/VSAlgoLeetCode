@@ -23,15 +23,15 @@ namespace Algo
 
             bool isValid = false;
 
-            if (GetValidMinMaxSubtree(root.Left, out int leftMin, out int leftMax) &&
-                GetValidMinMaxSubtree(root.Right, out int rightMin, out int rightMax))
+            if (GetValidMinMaxSubtree(root.left, out int leftMin, out int leftMax) &&
+                GetValidMinMaxSubtree(root.right, out int rightMin, out int rightMax))
             {
-                isValid = (root.Left == null || root.Val > leftMax) &&
-                          (root.Right == null || root.Val < rightMin);
+                isValid = (root.left == null || root.val > leftMax) &&
+                          (root.right == null || root.val < rightMin);
 
                 if (isValid) {
-                    min = Math.Min(leftMin, root.Val); // if it's a leaf, min and max will be the current node value
-                    max = Math.Max(rightMax, root.Val);
+                    min = Math.Min(leftMin, root.val); // if it's a leaf, min and max will be the current node value
+                    max = Math.Max(rightMax, root.val);
                 }
             }
 

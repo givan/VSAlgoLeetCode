@@ -41,7 +41,7 @@ namespace Algo
         {
             // we're only interested at the candidates who are greaer than the last element in the current permutation
             // the reason for this is that we want to have unique combinations of possible digits in increasing order
-            int maxCurrentCandidate = (currentPermuation.Count > 0) ? currentPermuation[currentPermuation.Count - 1] : 0;
+            int maxCurrentCandidate = (currentPermuation.Count > 0) ? currentPermuation[^1] : 0;
 
             // for each possible candidate for the current position - which are any candidates from the original set less or equal to sumTarget
             foreach (var candidate in candidatesSet)

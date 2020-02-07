@@ -5,26 +5,26 @@ namespace Algo.Common
 {
     public class TreeNode
     {
-        public int Val { get; set; }
-        public TreeNode Left { get; set; }
-        public TreeNode Right { get; set; }
-        public TreeNode(int x) { Val = x; }
+        public int val { get; set; }
+        public TreeNode left { get; set; }
+        public TreeNode right { get; set; }
+        public TreeNode(int x) { val = x; }
 
         public override string ToString()
         {
             // do root->left->right iteration and add the values to the StringBuilder
             StringBuilder sbTree = new StringBuilder();
 
-            bool isLeaf = (Left == null && Right == null);
+            bool isLeaf = (left == null && right == null);
 
-            sbTree.Append($"{ this.Val }");
+            sbTree.Append($"{ this.val }");
 
             if (!isLeaf)
             {
-                string leftNode = (Left != null) ? Left.ToString() : "null";
+                string leftNode = (left != null) ? left.ToString() : "null";
                 sbTree.Append($", { leftNode  }"); 
 
-                string rightNode = (Right != null) ? Right.ToString(): "null";
+                string rightNode = (right != null) ? right.ToString(): "null";
                 sbTree.Append($", { rightNode }");
             }
 
@@ -44,7 +44,7 @@ namespace Algo.Common
             TreeNode leftRoot = BuildFromIndex(binaryTreeArray, 2 * index + 1);
             TreeNode rightRoot = BuildFromIndex(binaryTreeArray, 2 * index + 2);
 
-            TreeNode root = new TreeNode((int)binaryTreeArray[index]) { Left = leftRoot, Right = rightRoot };
+            TreeNode root = new TreeNode((int)binaryTreeArray[index]) { left = leftRoot, right = rightRoot };
             return root;
         }
     }
