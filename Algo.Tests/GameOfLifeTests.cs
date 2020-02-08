@@ -26,18 +26,21 @@ namespace Algo.Tests
             };
 
             // act
-            var resultBoard = GameOfLife.CalcTick(board);
+            var game = new GameOfLife(board);
+            game.CalcTick();
+            var resultBoard = game.Board;
 
             // assert
             Assert.AreEqual(expectedBoard.Length, resultBoard.Length);
+            Assert.AreEqual(expectedBoard.Rank, resultBoard.Rank);
 
-            CollectionAssert.AreEquivalent(expectedBoard, resultBoard);
-
-            // for (int currRowIdx = 0; currRowIdx < expectedBoard.Length; currRowIdx++)
-            // for (int currColIdx = 0; currColIdx < expectedBoard.Length; currRowIdx++)
-            // {
-            //     Assert.AreEqual(expectedBoard[currRowIdx, currColIdx], resultBoard[currRowIdx, currColIdx]);
-            // }
+            for (int rowIdx = 0; rowIdx < resultBoard.GetLength(0); rowIdx++)
+            {
+                for (int colIdx = 0; colIdx < resultBoard.GetLength(1); colIdx++)
+                {
+                    Assert.AreEqual(expectedBoard[rowIdx, colIdx], resultBoard[rowIdx, colIdx]);
+                }
+            }
         }
     }
 }

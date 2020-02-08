@@ -8,42 +8,50 @@ any dead cell with exactly 3 gets set on
 all other live are made dead
 dead cell stay dead
     */
-    public static class GameOfLife
+    public class GameOfLife
     {
-        public static int[,] CalcTick(int[,] board)
+        public int[,] Board { get; private set; }
+
+        public GameOfLife(int[,] board)
         {
             if (board == null || board.Length == 0) { throw new ArgumentException("board must be a non empty array"); }
 
-            int[,] result = new int[board.Length, board.Length];
+            this.Board = board;
+        }
+        public void CalcTick()
+        {
+            int rows = this.Board.GetLength(0);
+            int columns = this.Board.GetLength(1);
 
-            for (int rowIdx = 0; rowIdx < board.Rank; rowIdx++)
+            int[,] result = new int[rows, columns];
+
+            for (int rowIdx = 0; rowIdx < rows; rowIdx++)
             {
-                int columns = board.GetLength(rowIdx);
                 for (int colIdx = 0; colIdx < columns; colIdx++)
                 {
-                    int cellState = DetermineState(board, rowIdx, colIdx);
+                    int cellState = DetermineState(rowIdx, colIdx);
 
                     result[rowIdx, colIdx] = cellState;
                 }
             }
 
-            return result;
+            this.Board = result;
         }
 
-        private static int DetermineState(int[,] board, int rowIdx, int colIdx)
+        private int DetermineState(int rowIdx, int colIdx)
         {
             // if off and has 3 neighbors on - goes on
             // if on and has 2-3 neigh on - stays on
             // otherwise off
-            int onNeighoursCount = DetermineOnNeighbors(board, rowIdx, colIdx);
+            int onNeighoursCount = DetermineOnNeighbors(rowIdx, colIdx);
 
             int nextState = 0;
 
-            if (board[rowIdx, colIdx] == 1 && (onNeighoursCount == 2 || onNeighoursCount == 3))
+            if (this.Board[rowIdx, colIdx] == 1 && (onNeighoursCount == 2 || onNeighoursCount == 3))
             {
                 nextState = 1;
             }
-            else if (board[rowIdx, colIdx] == 0 && onNeighoursCount == 3)
+            else if (this.Board[rowIdx, colIdx] == 0 && onNeighoursCount == 3)
             {
                 nextState = 1;
             }
@@ -51,27 +59,27 @@ dead cell stay dead
             return nextState;
         }
 
-        private static int DetermineOnNeighbors(int[,] board, int rowIdx, int colIdx)
+        private int DetermineOnNeighbors(int rowIdx, int colIdx)
         {
             int onNeighoursCount = 0;
 
-            onNeighoursCount += IsCellOn(board, rowIdx - 1, colIdx) ? 1 : 0; // top
-            onNeighoursCount += IsCellOn(board, rowIdx + 1, colIdx) ? 1 : 0; // bottom
-            onNeighoursCount += IsCellOn(board, rowIdx, colIdx - 1) ? 1 : 0; // left
-            onNeighoursCount += IsCellOn(board, rowIdx, colIdx + 1) ? 1 : 0; // right
-            onNeighoursCount += IsCellOn(board, rowIdx - 1, colIdx - 1) ? 1 : 0; // up left
-            onNeighoursCount += IsCellOn(board, rowIdx - 1, colIdx + 1) ? 1 : 0; // up right
-            onNeighoursCount += IsCellOn(board, rowIdx + 1, colIdx - 1) ? 1 : 0; // bottom left
-            onNeighoursCount += IsCellOn(board, rowIdx + 1, colIdx + 1) ? 1 : 0; // bottom right
+            onNeighoursCount += IsCellOn(rowIdx - 1, colIdx) ? 1 : 0; // top
+            onNeighoursCount += IsCellOn(rowIdx + 1, colIdx) ? 1 : 0; // bottom
+            onNeighoursCount += IsCellOn(rowIdx, colIdx - 1) ? 1 : 0; // left
+            onNeighoursCount += IsCellOn(rowIdx, colIdx + 1) ? 1 : 0; // right
+            onNeighoursCount += IsCellOn(rowIdx - 1, colIdx - 1) ? 1 : 0; // up left
+            onNeighoursCount += IsCellOn(rowIdx - 1, colIdx + 1) ? 1 : 0; // up right
+            onNeighoursCount += IsCellOn(rowIdx + 1, colIdx - 1) ? 1 : 0; // bottom left
+            onNeighoursCount += IsCellOn(rowIdx + 1, colIdx + 1) ? 1 : 0; // bottom right
 
             return onNeighoursCount;
         }
 
-        private static bool IsCellOn(int[,] board, int rowIdx, int colIdx)
+        private bool IsCellOn(int rowIdx, int colIdx)
         {
-            return (rowIdx >= 0 && rowIdx < board.Length &&
-                    colIdx >= 0 && colIdx < board.Length &&
-                    board[rowIdx, colIdx] == 1);
+            return (rowIdx >= 0 && rowIdx < this.Board.Rank &&
+                    colIdx >= 0 && colIdx < this.Board.GetLength(rowIdx) &&
+                    this.Board[rowIdx, colIdx] == 1);
         }
     }
 }
