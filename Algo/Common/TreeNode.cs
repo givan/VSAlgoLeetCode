@@ -12,7 +12,7 @@ namespace Algo.Common
 
         public override string ToString()
         {
-            // do root->left->right iteration and add the values to the StringBuilder
+            // do root->left->right (pre-order traversal) and add the values to the StringBuilder
             StringBuilder sbTree = new StringBuilder();
 
             bool isLeaf = (left == null && right == null);
